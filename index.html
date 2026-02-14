@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unlock The Secret 🔐</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 420px;
+            text-align: center;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+            animation: fade 0.8s ease-in-out;
+        }
+
+        .active {
+            display: block;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #ff4081;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 250px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
+        @keyframes fade {
+            from {opacity: 0; transform: scale(0.9);}
+            to {opacity: 1; transform: scale(1);}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active" id="slide1">
+    <h2>🔐 Level 1</h2>
+    <p>What's the total of our mobile numbers?</p>
+    <input type="text" id="q1">
+    <button onclick="check1()">Unlock</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" id="slide2">
+    <h2>🔐 Level 2</h2>
+    <p>When was this picture taken?</p>
+    <img src="C:\Users\chait\Desktop\wishes\botth.jpeg" alt="Memory Image">
+    <p>(Format: DD-MM-YYYY)</p>
+    <input type="text" id="q2">
+    <button onclick="check2()">Unlock</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" id="slide3">
+    <h2>🔐 Final Level</h2>
+    <p>Our first train journey start and end day?</p>
+    <p>(Format: Day - Day)</p>
+    <input type="text" id="q3">
+    <button onclick="check3()">Unlock</button>
+</div>
+
+<!-- Final Surprise -->
+<div class="slide" id="final">
+    <h2>💖 Surprise 💖</h2>
+    <img src="C:\Users\chait\Desktop\wishes\solo.jpeg" alt="Best Friend">
+    <p>
+        Hey <b>Hari</b> ❤️<br><br>
+        From crazy journeys to unforgettable memories,  
+        you are my loud supporter, drama queen,  
+        pure soul and forever partner in crime 😌🔥  
+        <br><br>
+        Happy Valentine’s Day to my best friend 💕  
+        Forever grateful for you!
+    </p>
+</div>
+
+<script>
+
+// 🔴 EDIT THESE ANSWERS
+let correctTotal = "17740890860";
+let correctImageDate = "26-09-2024";
+let correctJourney = "tuesday-wednesday";  // example
+
+function nextSlide(current, next) {
+    document.getElementById(current).classList.remove("active");
+    document.getElementById(next).classList.add("active");
+}
+
+function check1() {
+    let ans = document.getElementById("q1").value.trim();
+    if (ans === correctTotal) {
+        nextSlide("slide1", "slide2");
+    } else {
+        alert("Wrong total 😜 Try again!");
+    }
+}
+
+function check2() {
+    let ans = document.getElementById("q2").value.trim();
+    if (ans === correctImageDate) {
+        nextSlide("slide2", "slide3");
+    } else {
+        alert("Check the memory carefully 😏");
+    }
+}
+
+function check3() {
+    let ans = document.getElementById("q3").value.toLowerCase().trim();
+    if (ans === correctJourney) {
+        nextSlide("slide3", "final");
+    } else {
+        alert("Think about our first train adventure 🚆");
+    }
+}
+
+</script>
+
+</body>
+</html>
